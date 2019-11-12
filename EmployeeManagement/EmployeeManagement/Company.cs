@@ -63,10 +63,10 @@ namespace EmployeeManagement
             return null;
         }
 
-        IEmployee ViewEmployee(string name)
+        public IEmployee ViewEmployee(string name)
         {
             EmployeeList.Sort();
-            List<Employee> results = EmployeeList.FindAll(x => x.EmployeeID == id);
+            List<Employee> results = EmployeeList.FindAll(x => x.FullName == name);
             foreach (var employee in results)
             {
                 Console.WriteLine("Employee => ID: " + employee.EmployeeID + " | Name: " + employee.FullName

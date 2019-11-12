@@ -14,16 +14,8 @@ namespace EmployeeManagement
 
             while (loopContinue)
             {
-                Console.WriteLine("\n***** EMPLOYEE MANAGEMENT SYSTEM *****");
-                Console.WriteLine("1) Add Department");
-                Console.WriteLine("2) Add Employee");
-                Console.WriteLine("3) Edit Employee details");
-                Console.WriteLine("4) View Employee details");
-                Console.WriteLine("5) Remove Employee");
-                Console.WriteLine("6) View Statistics");
-                Console.WriteLine("7) View All Department");
-                Console.Write("Please input your option: ");
-                choice = Convert.ToInt32(Console.ReadLine());
+
+                choice = Menu();
 
                 switch (choice)
                 {
@@ -62,9 +54,21 @@ namespace EmployeeManagement
                         loopContinue = false;
                         break;
                     case 4:
-                        Console.Write("\nEnter the employee ID to search for: ");
-                        int id = Convert.ToInt32(Console.ReadLine());
-                        comp.ViewEmployee(id);
+                        Console.Write("Do you want to search usign (ID) or (Name)? ");
+                        string searchParameter = Console.ReadLine();
+                        if (searchParameter == "ID" || searchParameter == "id" || searchParameter == "Id")
+                        {
+                            Console.Write("\nEnter the employee ID to search for: ");
+                            int id = Convert.ToInt32(Console.ReadLine());
+                            comp.ViewEmployee(id);
+                        }
+                        else
+                        {
+                            Console.Write("\nEnter the employee full name to search for: ");
+                            string name = Console.ReadLine();
+                            comp.ViewEmployee(name);
+                        }
+
                         loopContinue = false;
                         break;
 
@@ -75,6 +79,23 @@ namespace EmployeeManagement
                 if (loopContinue)
                     Console.WriteLine("\nError: Please enter a valid choice!");
             }
+        }
+
+        static int Menu()
+        {
+            Console.WriteLine("\n***** EMPLOYEE MANAGEMENT SYSTEM *****");
+            Console.WriteLine("1) Add Department");
+            Console.WriteLine("2) Add Employee");
+            Console.WriteLine("3) Edit Employee details");
+            Console.WriteLine("4) View Employee details");
+            Console.WriteLine("5) Remove Employee");
+            Console.WriteLine("6) View Statistics");
+            Console.WriteLine("7) View All Department");
+            Console.Write("Please input your option: ");
+
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            return choice;
         }
     }
 }
