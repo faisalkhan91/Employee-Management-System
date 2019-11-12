@@ -71,6 +71,13 @@ namespace EmployeeManagement
 
                         loopContinue = false;
                         break;
+                    case 5:
+                        Console.WriteLine("Enter the ID of the employee you want to remove: ");
+                        int empid = Convert.ToInt32(Console.ReadLine());
+                        comp.DeleteEmployee(empid);
+
+                        loopContinue = false;
+                        break;
 
                     default:
                         loopContinue = true;

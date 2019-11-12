@@ -9,6 +9,8 @@ namespace EmployeeManagement
         List<Department> DepartmentList = new List<Department>();
         List<Employee> EmployeeList = new List<Employee>();
 
+        //List<Company> CompanyList = new List<Company>();
+
         public int AddDepartment(string deptName)
         {
             Random random = new Random();
@@ -77,7 +79,7 @@ namespace EmployeeManagement
             return null;
         }
 
-        int DeleteEmployee(int id)
+        public int DeleteEmployee(int id)
         {
             return 0;
         }
