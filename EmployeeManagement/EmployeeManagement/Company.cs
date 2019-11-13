@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace EmployeeManagement
 {
-    class Company : Employee
+    class Company : Employee, ICompany
     {
         List<Department> DepartmentList = new List<Department>();
         List<Employee> EmployeeList = new List<Employee>();
@@ -46,13 +47,21 @@ namespace EmployeeManagement
             return rnd;
         }
 
-        int EditEmployee(int employee)
+        public int EditEmployee(int employee)
         {
+            Console.Write("Enter the new designation: ");
+            string desig = Console.ReadLine();
+            List<Employee> results = EmployeeList.FindAll(x => x.EmployeeID == employee);
+            foreach (var empl in results)
+            {
+                empl.Designation = desig;
+            }
             return 0;
         }
 
         public IEmployee ViewEmployee(int id)
         {
+            Console.WriteLine();
             EmployeeList.Sort();
             List<Employee> results = EmployeeList.FindAll(x => x.EmployeeID == id);
             foreach (var employee in results)
@@ -67,6 +76,7 @@ namespace EmployeeManagement
 
         public IEmployee ViewEmployee(string name)
         {
+            Console.WriteLine();
             EmployeeList.Sort();
             List<Employee> results = EmployeeList.FindAll(x => x.FullName == name);
             foreach (var employee in results)
@@ -81,10 +91,27 @@ namespace EmployeeManagement
 
         public int DeleteEmployee(int id)
         {
-            return 0;
+            var itemToRemove = EmployeeList.SingleOrDefault(r => r.EmployeeID == id);
+            if (itemToRemove != null)
+            {
+                EmployeeList.Remove(itemToRemove);
+                Console.WriteLine("Employee " + id + " is removed!");
+                return id;
+            }
+            else
+                return 0;
         }
 
-        int ViewStatistics(int id)
+        public int ViewDepartment()
+        {
+            Console.WriteLine();
+            foreach (var department in DepartmentList)
+            {
+                Console.WriteLine("Department => ID: " + department.DepartmentID + " | Name: " + department.DepartmentName);
+            }
+            return 0;
+        }
+        public int ViewStatistics(int id)
         {
             return 0;
         }

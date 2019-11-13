@@ -10,7 +10,7 @@ namespace EmployeeManagement
         private string _fullName;
         private DateTime _dateOfBirth;
         private int _experience;
-        private int _designation;
+        private string _designation;
         private int _basicPay;
         private int _grossPay;
 
@@ -20,11 +20,11 @@ namespace EmployeeManagement
             FullName = null;
             DateOfBirth = DateTime.Now;
             Experience = 0;
-            Designation = 0;
+            Designation = null;
             BasicPay = 0;
             GrossPay = 0;
         }
-        public Employee(int employeeID, string fullName, DateTime dateOfBirth, int experience, int designation, int basicPay, int grossPay)
+        public Employee(int employeeID, string fullName, DateTime dateOfBirth, int experience, string designation, int basicPay, int grossPay)
         {
             EmployeeID = employeeID;
             FullName = fullName;
@@ -39,7 +39,7 @@ namespace EmployeeManagement
         public string FullName { get => _fullName; set => _fullName = value; }
         public DateTime DateOfBirth { get => _dateOfBirth; set => _dateOfBirth = value; }
         public int Experience { get => _experience; set => _experience = value; }
-        public int Designation { get => _designation; set => _designation = value; }
+        public string Designation { get => _designation; set => _designation = value; }
         public int BasicPay { get => _basicPay; set => _basicPay = value; }
         public int GrossPay { get => _grossPay; set => _grossPay = value; }
     }

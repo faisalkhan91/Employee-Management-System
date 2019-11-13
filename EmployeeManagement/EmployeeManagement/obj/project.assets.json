@@ -8,23 +8,23 @@
     ".NETCoreApp,Version=v3.0": []
   },
   "packageFolders": {
-    "C:\\Users\\hackathon\\.nuget\\packages\\": {},
+    "C:\\Users\\faisa\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hackathon\\Desktop\\EmployeeManagementSystem\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement.csproj",
+      "projectUniqueName": "C:\\Users\\faisa\\Desktop\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement.csproj",
       "projectName": "EmployeeManagement",
-      "projectPath": "C:\\Users\\hackathon\\Desktop\\EmployeeManagementSystem\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement.csproj",
-      "packagesPath": "C:\\Users\\hackathon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hackathon\\Desktop\\EmployeeManagementSystem\\EmployeeManagement\\EmployeeManagement\\obj\\",
+      "projectPath": "C:\\Users\\faisa\\Desktop\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement.csproj",
+      "packagesPath": "C:\\Users\\faisa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\faisa\\Desktop\\EmployeeManagement\\EmployeeManagement\\EmployeeManagement\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\hackathon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\faisa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

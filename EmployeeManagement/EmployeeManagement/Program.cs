@@ -16,10 +16,13 @@ namespace EmployeeManagement
             {
 
                 choice = Menu();
+                Console.WriteLine();
 
                 switch (choice)
                 {
                     case 1:
+                        Console.WriteLine("******** ADD DEPARTMENT ********");
+                        Console.WriteLine();
                         Console.Write("\nEnter the department name you want to add: ");
                         string DName = Console.ReadLine();
                         comp.AddDepartment(DName);
@@ -27,6 +30,8 @@ namespace EmployeeManagement
                         loopContinue = true;
                         break;
                     case 2:
+                        Console.WriteLine("******** ADD EMPLOYEE ********");
+                        Console.WriteLine();
                         Console.Write("\nEnter your full name: ");
                         emp.FullName = Console.ReadLine();
                         Console.Write("\nEnter your date of birth: ");
@@ -40,7 +45,7 @@ namespace EmployeeManagement
                         Console.Write("\nEnter your experience: ");
                         emp.Experience = Convert.ToInt32(Console.ReadLine());
                         Console.Write("\nEnter your designation: ");
-                        emp.Designation = Convert.ToInt32(Console.ReadLine());
+                        emp.Designation = Console.ReadLine();
                         Console.Write("\nEnter your basic pay: ");
                         emp.BasicPay = Convert.ToInt32(Console.ReadLine());
                         Console.Write("\nEnter your gross pay: ");
@@ -50,10 +55,18 @@ namespace EmployeeManagement
                         loopContinue = true;
                         break;
                     case 3:
+                        Console.WriteLine("******** EDIT EMPLOYEE DETAILS ********");
+                        Console.WriteLine();
 
-                        loopContinue = false;
+                        Console.Write("\nEnter the ID to change designation for: ");
+                        int desgID = Convert.ToInt32(Console.ReadLine());
+                        comp.EditEmployee(desgID);
+
+                        loopContinue = true;
                         break;
                     case 4:
+                        Console.WriteLine("******** VIEW EMPLOYEE DETAILS ********");
+                        Console.WriteLine();
                         Console.Write("Do you want to search usign (ID) or (Name)? ");
                         string searchParameter = Console.ReadLine();
                         if (searchParameter == "ID" || searchParameter == "id" || searchParameter == "Id")
@@ -69,13 +82,31 @@ namespace EmployeeManagement
                             comp.ViewEmployee(name);
                         }
 
-                        loopContinue = false;
+                        loopContinue = true;
                         break;
                     case 5:
+                        Console.WriteLine("******** REMOVE EMPLOYEE ********");
+                        Console.WriteLine();
                         Console.WriteLine("Enter the ID of the employee you want to remove: ");
                         int empid = Convert.ToInt32(Console.ReadLine());
                         comp.DeleteEmployee(empid);
 
+                        loopContinue = true;
+                        break;
+                    case 6:
+                        Console.WriteLine("******** VIEW STATISTICS ********");
+                        Console.WriteLine();
+                        break;
+                    case 7:
+                        Console.WriteLine("******** VIEW ALL DEPARTMENT ********");
+                        Console.WriteLine();
+                        comp.ViewDepartment();
+                        loopContinue = true;
+                        break;
+                    case 8:
+                        Console.WriteLine("******** EXITING ********");
+                        Console.WriteLine();
+                        Console.WriteLine("Program exited...");
                         loopContinue = false;
                         break;
 
@@ -84,13 +115,15 @@ namespace EmployeeManagement
                         break;
                 }
                 if (loopContinue)
-                    Console.WriteLine("\nError: Please enter a valid choice!");
+                    Console.WriteLine("\nReturning to main menu.");
+                    Console.WriteLine();
             }
         }
 
         static int Menu()
         {
             Console.WriteLine("\n***** EMPLOYEE MANAGEMENT SYSTEM *****");
+            Console.WriteLine();
             Console.WriteLine("1) Add Department");
             Console.WriteLine("2) Add Employee");
             Console.WriteLine("3) Edit Employee details");
@@ -98,6 +131,8 @@ namespace EmployeeManagement
             Console.WriteLine("5) Remove Employee");
             Console.WriteLine("6) View Statistics");
             Console.WriteLine("7) View All Department");
+            Console.WriteLine("8) Exit");
+            Console.WriteLine();
             Console.Write("Please input your option: ");
 
             int choice = Convert.ToInt32(Console.ReadLine());

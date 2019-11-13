@@ -12,6 +12,7 @@ namespace EmployeeManagement
         public IEmployee ViewEmployee(int id);
         public IEmployee ViewEmployee(string name);
         public int DeleteEmployee(int id);
+        public int ViewDepartment();
         public int ViewStatistics(int id);
     }
 }

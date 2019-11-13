@@ -10,7 +10,7 @@ namespace EmployeeManagement
         string FullName { get; set; }
         DateTime DateOfBirth { get; set; }
         int Experience { get; set; }
-        int Designation { get; set; }
+        string Designation { get; set; }
         int BasicPay { get; set; }
         int GrossPay { get; set; }
     }
