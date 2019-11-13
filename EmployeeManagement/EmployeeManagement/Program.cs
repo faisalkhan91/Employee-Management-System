@@ -32,23 +32,33 @@ namespace EmployeeManagement
                     case 2:
                         Console.WriteLine("******** ADD EMPLOYEE ********");
                         Console.WriteLine();
-                        Console.Write("\nEnter your full name: ");
+                        Console.WriteLine("List of available Departments:");
+                        comp.ViewDepartment();
+                        Console.Write("Please input one of the above department ID for the new employee: ");
+                        emp.EmployeeDepID = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("You selected Department ID: " + emp.EmployeeDepID + ". Please enter the employee details below.\n");
+                        Console.Write("Enter your full name: ");
                         emp.FullName = Console.ReadLine();
-                        Console.Write("\nEnter your date of birth: ");
+                        Console.Write("Enter employee date of birth (Format - MM/DD/YYYY): ");
                         string DOB = Console.ReadLine();
                         DateTime dt;
-                        while (!DateTime.TryParseExact(DOB, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out dt))
+                        while (!DateTime.TryParseExact(DOB, "MM/dd/yyyy", null, System.Globalization.DateTimeStyles.None, out dt))
                         {
                             Console.WriteLine("Invalid date, please retry");
                             DOB = Console.ReadLine();
                         }
-                        Console.Write("\nEnter your experience: ");
+                        emp.DateOfBirth = dt;
+                        Console.Write("Enter your experience: ");
                         emp.Experience = Convert.ToInt32(Console.ReadLine());
-                        Console.Write("\nEnter your designation: ");
-                        emp.Designation = Console.ReadLine();
-                        Console.Write("\nEnter your basic pay: ");
+                        emp.Designation = "";
+                        while (emp.Designation != "Manager" && emp.Designation != "Employee")
+                        {
+                            Console.Write("Enter your designation: ");
+                            emp.Designation = Console.ReadLine();
+                        }
+                        Console.Write("Enter your basic pay: ");
                         emp.BasicPay = Convert.ToInt32(Console.ReadLine());
-                        Console.Write("\nEnter your gross pay: ");
+                        Console.Write("Enter your gross pay: ");
                         emp.GrossPay = Convert.ToInt32(Console.ReadLine());
                         
                         comp.AddEmployee(emp, out _);
@@ -96,6 +106,12 @@ namespace EmployeeManagement
                     case 6:
                         Console.WriteLine("******** VIEW STATISTICS ********");
                         Console.WriteLine();
+
+                        Console.WriteLine("List of available Departments:");
+                        comp.ViewDepartment();
+                        Console.Write("\nEnter the Department ID to display statistics for: ");
+                        int did = Convert.ToInt32(Console.ReadLine());
+                        comp.ViewStatistics(did);
                         break;
                     case 7:
                         Console.WriteLine("******** VIEW ALL DEPARTMENT ********");

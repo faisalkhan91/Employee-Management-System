@@ -6,6 +6,7 @@ namespace EmployeeManagement
 {
     interface IEmployee
     {
+        int EmployeeDepID { get; set; }
         int EmployeeID { get; set; }
         string FullName { get; set; }
         DateTime DateOfBirth { get; set; }
